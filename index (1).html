@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pavan Kumar — Application Developer (Java, Spring Boot, Microservices, React). Portfolio, experience and contact.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%2300D2FF'/%3E%3Cstop offset='1' stop-color='%232563EB'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='url(%23g)'%3EP%3C/text%3E%3C/svg%3E">
+<title>Pavan Kumar | Application Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: user's second template — pure black, cyan→blue gradient name and accents, hero copy left with vertical social rail right; dark cards below. Single deliberate dark look. */
+:root{
+  color-scheme:dark;
+  --bg:#000000; --card:#0C0D12; --card-2:#12141B; --line:#1F2230; --fg:#F2F4F8; --muted:#9AA0B2;
+  --c1:#00D2FF; --c2:#2563EB; --grad:linear-gradient(90deg,var(--c1),var(--c2));
+  --display:"Sora","Segoe UI",system-ui,sans-serif; --font:"Inter","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--c1);outline-offset:3px;border-radius:8px}
+h1,h2,h3{margin:0;font-family:var(--display);text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:18px;gap:16px}
+.logo{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:.02em;text-decoration:none}
+.right{display:flex;align-items:center;gap:34px}
+.links{display:flex;gap:34px;font-size:14px}
+.links a{text-decoration:none;color:#D6D9E2;transition:color .2s}
+.links a:hover,.links a.on{color:var(--c1)}
+.resume{font-size:14px;text-decoration:none;padding:8px 18px;border-radius:10px;border:1px solid #3B6FD1;background:#0A1426;box-shadow:0 0 0 1px rgba(0,210,255,.12),0 0 18px rgba(37,99,235,.35);transition:box-shadow .2s,background .2s}
+.resume:hover{background:#102040;box-shadow:0 0 0 1px rgba(0,210,255,.35),0 0 26px rgba(0,210,255,.45)}
+.menu{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:8px;padding:6px 12px;font-family:var(--font);font-size:14px;cursor:pointer}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px;padding-block:clamp(72px,11vw,130px) clamp(64px,9vw,110px)}
+.hi{font-size:14px;color:#D6D9E2;margin-bottom:10px}
+.hero h1{font-size:clamp(40px,6.4vw,64px);font-weight:700;line-height:1.08;letter-spacing:-.01em}
+.hero h1 .dot{color:#fff}
+.hero h2{font-size:clamp(22px,3vw,30px);font-weight:800;line-height:1.3;margin-top:14px;max-width:18em;color:#E9ECF3}
+.hero .lede{color:#C4C8D4;font-size:15px;max-width:36em;margin-top:18px;text-align:justify}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.tag{font-size:12.5px;color:#cfe9ff;border:1px solid #1d3a6e;background:#07101f;padding:4px 12px;border-radius:99px;display:inline-flex;align-items:center;gap:8px}
+.tag i{width:7px;height:7px;border-radius:50%;background:#34D399}
+.cta{display:inline-block;margin-top:30px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.04em;text-decoration:none;color:#fff;padding:13px 26px;border-radius:10px;background:var(--grad);box-shadow:0 10px 30px rgba(37,99,235,.35);transition:transform .2s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,210,255,.4)}
+.rail{display:flex;flex-direction:column;gap:22px;padding-right:clamp(0px,4vw,60px)}
+.rail a{display:grid;place-items:center;width:40px;height:40px;transition:transform .2s}
+.rail a:hover{transform:translateY(-3px)}
+.rail svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.rail a:hover svg{stroke:var(--c1)}
+
+/* Sections */
+.sec{padding-block:80px;scroll-margin-top:70px}
+.title{margin-bottom:40px}
+.title small{display:block;font-size:13px;color:var(--c1);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.title h2{font-size:clamp(30px,4vw,42px);font-weight:700}
+.title p{color:var(--muted);margin-top:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px}
+
+.about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.about .text{display:flex;flex-direction:column;gap:14px;color:#C4C8D4}
+.profile{padding:8px 24px;display:flex;flex-direction:column;justify-content:space-between}
+.profile img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid transparent;background:var(--grad) border-box;align-self:center}
+.term{margin-top:6px;background:#05070C;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,210,255,.06),0 12px 30px rgba(37,99,235,.18)}
+.term .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:#0A0D15}
+.term .bar i{width:9px;height:9px;border-radius:50%;background:#2A2F3D}
+.term .bar i:first-child{background:#FF5F57}.term .bar i:nth-child(2){background:#FEBC2E}.term .bar i:nth-child(3){background:#28C840}
+.term .bar span{margin-left:8px;font-size:11.5px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+.term pre{margin:0;padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.7;color:#D6D9E2;overflow-x:auto}
+.term .p{color:var(--c1)}.term .k{color:#7DD3FC}.term .s{color:#FBBF77}.term .ok{color:#34D399}.term .b{color:var(--muted)}
+.term .cur{display:inline-block;width:7px;height:14px;background:var(--c1);vertical-align:-2px;animation:tb 1s steps(1) infinite}
+@keyframes tb{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.term .cur{animation:none}}
+.fact{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;padding-block:14px;border-top:1px solid var(--line);font-size:14px}
+.fact:first-child{border-top:0}
+.profile .fact{flex:1;align-items:center}
+.fact b{color:var(--muted);font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:36px}
+.stat{padding:22px;text-align:center}
+.stat b{display:block;font-family:var(--display);font-size:clamp(28px,3.4vw,38px);font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13.5px;color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.sk{padding:22px;transition:border-color .25s,transform .25s}
+.sk:hover{border-color:#2a4f94;transform:translateY(-3px)}
+.sk h3{font-size:16px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sk h3 i{width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:12.5px;padding:4px 11px;border-radius:99px;background:var(--card-2);border:1px solid var(--line);color:#D6D9E2}
+
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pj{padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.pj::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad)}
+.pj:hover{border-color:#2a4f94;transform:translateY(-3px)}
+.pj small{font-size:12px;color:var(--c1);letter-spacing:.08em;text-transform:uppercase}
+.pj h3{font-size:20px;font-weight:700}
+.pj p{color:#C4C8D4;font-size:15px}
+.pj .res{font-size:13.5px;font-weight:600;color:#7DD3FC}
+
+.tl{display:flex;flex-direction:column;gap:20px}
+.job{padding:26px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px 32px}
+.job .side{display:flex;flex-direction:column;gap:4px}
+.job .when{font-size:13px;color:var(--c1)}
+.job h3{font-size:22px;font-weight:700}
+.job .role2{font-size:14px;color:#D6D9E2;font-weight:600}
+.job .loc{font-size:13px;color:var(--muted)}
+.job ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;color:#C4C8D4;font-size:15px}
+.job li::marker{color:var(--c1)}
+.job .chips{grid-column:2;margin-top:2px}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.list{padding:26px}
+.list h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.item{padding-block:12px;border-top:1px solid var(--line)}
+.item b{display:block;font-weight:600;font-size:15px}
+.item span{font-size:13.5px;color:var(--muted)}
+
+.contact .box{padding:clamp(28px,5vw,52px);text-align:center;background:radial-gradient(120% 140% at 50% 0%,#0b1b3a 0%,var(--card) 60%);}
+.contact h2{font-size:clamp(30px,4.4vw,46px);font-weight:700}
+.contact .sub{color:var(--muted);margin:10px auto 0;max-width:34em}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px;text-align:left}
+.cc{background:var(--card-2);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.cc small{color:var(--c1);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.cc .v{font-size:15px;overflow-wrap:anywhere}
+.cc button,.cc a.go{align-self:flex-start;background:none;border:1px solid #2a4f94;color:#fff;border-radius:8px;padding:5px 12px;font-family:var(--font);font-size:12.5px;cursor:pointer;text-decoration:none}
+.cc button:hover,.cc a.go:hover{background:#0A1426;border-color:var(--c1)}
+footer{padding-block:28px 36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:900px){
+  .about,.two{grid-template-columns:minmax(0,1fr)}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .job{grid-template-columns:minmax(0,1fr)}.job .chips{grid-column:1}
+  .cards{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .links{display:none;position:absolute;left:0;right:0;top:100%;background:#000;flex-direction:column;gap:0;padding:6px 20px 14px;border-bottom:1px solid var(--line)}
+  .links.open{display:flex}.links a{padding-block:10px}
+  .menu{display:block}.right{gap:12px}
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .rail{flex-direction:row;padding:0}
+  .projects,.skills{grid-template-columns:minmax(0,1fr)}
+  .hero .lede{text-align:left}
+  .sec{padding-block:56px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo gt" href="#home">PAVAN</a>
+    <div class="right">
+      <nav class="links" id="links" aria-label="Main"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+      <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links">Menu</button>
+      <a class="resume" href="Pavan_Kumar_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <p class="hi">Hi there!</p>
+      <h1>I am <span class="gt">Pavan Kumar</span><span class="dot">.</span></h1>
+      <h2>I build scalable Java backends and modern React applications.</h2>
+      <p class="lede">As an Application Developer with 3+ years at Capgemini, CBRE and Deloitte, I design secure REST APIs, event-driven microservices and responsive front ends, and I take them all the way to production on AWS and Azure.</p>
+      <div class="meta"><span class="tag"><i></i>Actively seeking new opportunities</span><span class="tag">Kansas City, MO</span></div>
+      <a class="cta" href="#contact">REACH OUT</a>
+    </div>
+    <nav class="rail" aria-label="Profiles">
+      <a href="https://www.linkedin.com/in/pavan-kumar-baa364307" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.2v.1M11 17v-6.5M11 13.5c0-2 1.2-3 2.8-3s2.7 1 2.7 3V17"/></svg></a>
+      <a href="#contact" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 6.5V18h4V10l5 4 5-4v8h4V6.5L19 5l-7 5.5L5 5z"/></svg></a>
+      <a href="#contact" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></a>
+      <a href="Pavan_Kumar_Resume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF"><svg viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8.5 13h7M8.5 16.5h7"/></svg></a>
+    </nav>
+  </div>
+</section>
+
+<main>
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="title"><small>About</small><h2>Who I <span class="gt">am</span></h2></div>
+      <div class="about">
+        <div class="text">
+          <p>I'm an Application Developer with 3+ years of experience designing, developing, testing and deploying scalable enterprise applications across backend, frontend, cloud and DevOps.</p>
+          <p>On the backend I work in Java 8/11/17 with Spring Boot, Spring MVC, Spring Security, Spring Cloud, Hibernate, JPA and Spring Batch. I build secure REST APIs with JWT and OAuth 2.0, event-driven services with Apache Kafka, and data layers on MySQL, Oracle, SQL Server and MongoDB with Redis caching. On the frontend I build responsive, reusable UI with React, TypeScript and Tailwind CSS.</p>
+          <p>I enjoy the whole software lifecycle: understanding business requirements, designing APIs, integrating the frontend, writing automated tests, deploying to AWS and Azure with Kubernetes and Terraform, and supporting production with Dynatrace, Grafana, Splunk and ELK.</p>
+          <div class="term" aria-label="Status card: Pavan is available and open to work">
+            <div class="bar"><i></i><i></i><i></i><span>pavan@dev: ~</span></div>
+            <pre><span class="p">$</span> curl api.pavan.dev/status
+<span class="b">{</span>
+  <span class="k">"status"</span>: <span class="ok">"UP"</span>,
+  <span class="k">"role"</span>: <span class="s">"Application Developer"</span>,
+  <span class="k">"stack"</span>: [<span class="s">"Java"</span>, <span class="s">"Spring"</span>, <span class="s">"React"</span>],
+  <span class="k">"openToWork"</span>: <span class="ok">true</span>
+<span class="b">}</span>
+<span class="p">$</span> <span class="cur"></span></pre>
+          </div>
+        </div>
+        <div class="profile card">
+          <div class="fact"><b>Name</b><span>Pavan Kumar</span></div>
+          <div class="fact"><b>Role</b><span>Application Developer II</span></div>
+          <div class="fact"><b>Experience</b><span>3+ years</span></div>
+          <div class="fact"><b>Location</b><span>Kansas City, MO, United States</span></div>
+          <div class="fact"><b>Education</b><span>Master's in Computer Science, UCM</span></div>
+          <div class="fact"><b>Status</b><span style="color:var(--c1);font-weight:600">Open to new roles</span></div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat card"><b class="gt">70+</b><span>REST APIs built</span></div>
+        <div class="stat card"><b class="gt">45%</b><span>faster APIs with Redis</span></div>
+        <div class="stat card"><b class="gt">90M+</b><span>users on a payment platform</span></div>
+        <div class="stat card"><b class="gt">500+</b><span>automated JUnit tests</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <div class="title"><small>Skills</small><h2>My <span class="gt">tech stack</span></h2></div>
+      <div class="skills">
+        <div class="sk card"><h3><i></i>Languages</h3><div class="chips"><span>Java 8/11/17</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>Python</span><span>HTML</span></div></div>
+        <div class="sk card"><h3><i></i>Backend</h3><div class="chips"><span>Spring Boot</span><span>Spring MVC</span><span>Spring Security</span><span>Spring Cloud</span><span>Spring Batch</span><span>Hibernate</span><span>JPA</span><span>Multithreading</span></div></div>
+        <div class="sk card"><h3><i></i>Architecture</h3><div class="chips"><span>Microservices</span><span>REST APIs</span><span>Apache Kafka</span><span>Resilience4j</span><span>Saga Pattern</span><span>JWT</span><span>OAuth 2.0</span></div></div>
+        <div class="sk card"><h3><i></i>Frontend</h3><div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>HTML</span><span>Responsive Design</span></div></div>
+        <div class="sk card"><h3><i></i>Data &amp; Big Data</h3><div class="chips"><span>MySQL</span><span>Oracle DB</span><span>SQL Server</span><span>MongoDB</span><span>Redis</span><span>Apache Spark</span><span>Hadoop</span><span>Databricks</span></div></div>
+        <div class="sk card"><h3><i></i>Cloud &amp; DevOps</h3><div class="chips"><span>AWS EC2</span><span>S3</span><span>CloudWatch</span><span>Azure</span><span>Kubernetes</span><span>Terraform</span><span>CI/CD</span><span>Maven</span><span>Git</span></div></div>
+        <div class="sk card"><h3><i></i>Monitoring</h3><div class="chips"><span>Dynatrace</span><span>Grafana</span><span>Splunk</span><span>ELK Stack</span><span>CloudWatch</span></div></div>
+        <div class="sk card"><h3><i></i>Testing</h3><div class="chips"><span>JUnit</span><span>Mockito</span><span>Integration Testing</span></div></div>
+        <div class="sk card"><h3><i></i>Process</h3><div class="chips"><span>Agile / Scrum</span><span>Jira</span><span>Production Support</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="title"><small>Projects</small><h2>Things I've <span class="gt">built</span></h2></div>
+      <div class="projects">
+        <article class="pj card">
+          <small>Capgemini · 2025</small><h3>Employee Self-Service Portal</h3><p>Microservices backend for HR, leave, attendance and payroll with 40+ secured REST APIs, Kafka events between services, Resilience4j circuit breakers and a Saga pattern for data consistency. React and Tailwind front end.</p>
+            <div class="chips"><span>Java 17</span><span>Spring Cloud</span><span>Kafka</span><span>React</span><span>Redis</span><span>Azure</span></div>
+            <div class="res">45% faster APIs · 35% faster page load</div>
+        </article>
+        <article class="pj card">
+          <small>CBRE · 2023–24</small><h3>Batch Reconciliation &amp; Reporting</h3><p>Spring Batch jobs for daily reconciliation, data aggregation and reporting that process millions of records with chunking, retries and job monitoring, plus React dashboards on top.</p>
+            <div class="chips"><span>Spring Batch</span><span>MongoDB</span><span>React</span><span>AWS</span><span>Terraform</span></div>
+            <div class="res">35% faster report generation</div>
+        </article>
+        <article class="pj card">
+          <small>Deloitte · 2022–23</small><h3>Payment Platform Services</h3><p>Backend services and REST APIs for a large-scale payment platform, with optimized Oracle queries, stored procedures and Redis caching on high-read endpoints.</p>
+            <div class="chips"><span>Java 8</span><span>Spring Boot</span><span>Oracle DB</span><span>Redis</span><span>AWS EC2</span></div>
+            <div class="res">Serving 90M+ users · 40% faster responses</div>
+        </article>
+        <article class="pj card">
+          <small>Machine Learning</small><h3>Fake News Detection</h3><p>Machine learning project that classifies news articles as real or fake, completed as a certified project alongside my work in Python for data science and big data with Spark and Hadoop.</p>
+            <div class="chips"><span>Python</span><span>Machine Learning</span><span>Data Science</span></div>
+            <div class="res">Certified project</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="wrap">
+      <div class="title"><small>Experience</small><h2>Where I've <span class="gt">worked</span></h2></div>
+      <div class="tl">
+        <article class="job card"><div class="side"><span class="when">Jul 2025 – Present</span><h3>Capgemini</h3><span class="role2">Application Developer II</span><span class="loc">St. Louis, MO</span></div><ul>
+            <li>Built an Employee Self-Service Portal backend with Java 17 and Spring Boot: 40+ REST APIs with Spring Security, JWT and OAuth 2.0 role-based access.</li>
+            <li>Architected services with Spring Cloud and event-driven messaging on Apache Kafka for leave, attendance and payroll events.</li>
+            <li>Added Resilience4j circuit breakers with fallbacks and retries, and a choreography-based Saga pattern for distributed consistency.</li>
+            <li>Cut API response time by 45% with Redis and improved MySQL query performance by up to 40%.</li>
+            <li>Built React, TypeScript and Tailwind interfaces, reducing initial page load by 35%.</li>
+            <li>Reached 82%+ JUnit coverage; deployed with Kubernetes on Azure via Terraform; monitored with Dynatrace, Grafana and Splunk.</li>
+          </ul><div class="chips"><span>Java 17</span><span>Spring Cloud</span><span>Kafka</span><span>React</span><span>MySQL</span><span>Redis</span><span>Azure</span><span>Kubernetes</span></div></article>
+        <article class="job card"><div class="side"><span class="when">Aug 2023 – Jul 2024</span><h3>CBRE</h3><span class="role2">Application Developer</span><span class="loc">Hyderabad</span></div><ul>
+            <li>Developed microservices with Java 11, Spring Boot, Hibernate and JPA, and built 30+ REST APIs secured with OAuth 2.0.</li>
+            <li>Designed Spring Batch jobs for daily reconciliation, aggregation and reporting, processing millions of records.</li>
+            <li>Wrote 500+ JUnit tests, reducing manual verification effort by about 40%.</li>
+            <li>Optimized MongoDB queries and aggregation pipelines, reducing report generation time by about 35%.</li>
+            <li>Built React dashboards with role-based navigation; deployed to AWS EC2 and S3 with Terraform and Kubernetes.</li>
+          </ul><div class="chips"><span>Java 11</span><span>Spring Batch</span><span>MongoDB</span><span>React</span><span>AWS</span><span>Terraform</span></div></article>
+        <article class="job card"><div class="side"><span class="when">May 2022 – Jul 2023</span><h3>Deloitte</h3><span class="role2">Software Developer</span><span class="loc">Hyderabad</span></div><ul>
+            <li>Developed REST APIs with Java 8, Spring Boot, Hibernate and JPA for a payment platform serving 90M+ users.</li>
+            <li>Built Oracle data-access layers with optimized SQL, views and stored procedures; led performance tuning and server migrations.</li>
+            <li>Implemented Redis caching, improving response times by about 40% on high-read endpoints.</li>
+            <li>Raised automated test coverage to 80%+ with JUnit and Mockito; supported CI/CD across staging and production.</li>
+          </ul><div class="chips"><span>Java 8</span><span>Spring Boot</span><span>Oracle DB</span><span>Redis</span><span>AWS</span><span>Mockito</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="education">
+    <div class="wrap">
+      <div class="title"><small>Learning</small><h2>Education &amp; <span class="gt">certifications</span></h2></div>
+      <div class="two">
+        <div class="list card"><h3>Education</h3>
+          <div class="item"><b>University of Central Missouri</b><span>Master's in Computer Science · Aug 2024 – Dec 2025</span></div>
+          <div class="item"><b>GITAM University</b><span>B.Tech in Electronics &amp; Communications Engineering (AI/ML) · 2020 – 2024</span></div>
+        </div>
+        <div class="list card"><h3>Certifications</h3>
+          <div class="item"><b>Fake News Detection with Machine Learning</b></div>
+          <div class="item"><b>Introduction to Big Data with Spark and Hadoop</b></div>
+          <div class="item"><b>Python for Data Science, AI &amp; Development</b></div>
+          <div class="item"><b>Fundamentals of Network Communications</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact sec" id="contact">
+    <div class="wrap">
+    <div class="box card">
+      <h2>Let's <span class="gt">work together</span></h2>
+      <p class="sub">I'm actively looking for Application Developer and Java Full Stack roles. Reach out and I'll get back to you quickly.</p>
+      <div class="cards">
+        <div class="cc"><small>Email</small><span class="v" id="em">pavankumaranjuri@gmail.com</span><button type="button" id="c-em" data-t="em">Copy email</button></div>
+        <div class="cc"><small>Phone</small><span class="v" id="ph">(913) 225-0967</span><button type="button" id="c-ph" data-t="ph">Copy number</button></div>
+        <div class="cc"><small>LinkedIn</small><span class="v">linkedin.com/in/pavan-kumar-baa364307</span><a class="go" href="https://www.linkedin.com/in/pavan-kumar-baa364307" target="_blank" rel="noopener">Open profile ↗</a></div>
+      </div>
+    </div>
+    <footer><span>© 2026 Pavan Kumar. All rights reserved.</span><span>Kansas City, MO</span></footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),menu=document.getElementById('menu'),links=document.getElementById('links');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  menu.addEventListener('click',function(){var o=links.classList.toggle('open');menu.setAttribute('aria-expanded',o)});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');menu.setAttribute('aria-expanded','false')})});
+  var as=[].slice.call(links.querySelectorAll('a'));
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)as.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('#about,#skills,#projects,#experience,#contact').forEach(function(s){io.observe(s)})}
+  document.querySelectorAll('[data-t]').forEach(function(b){var label=b.textContent;b.addEventListener('click',function(){var el=document.getElementById(b.dataset.t);
+    function ok(){b.textContent='Copied';setTimeout(function(){b.textContent=label},1600)}
+    function fb(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+    try{navigator.clipboard.writeText(el.textContent.trim()).then(ok,fb)}catch(e){fb()}})});
+})();
+</script>
+
+</body>
+</html>
